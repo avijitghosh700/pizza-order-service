@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pizza Delivery</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+<body>
+  <div class="bg-video position-fixed">
+    <video class="bg-video__content" autoplay muted loop>
+      <source src="videos/Seasoning Pizza at Italian Restaurant.mp4" type="video/mp4">
+      You have a shitty browser, sir.
+    </video>
+  </div>
+
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-lg-5 col-md-8 py-3">
+        <div class="form-heading text-center text-light mb-5">
+          <h1>Pizza Delivery</h1>
+        </div>
+
+        <form class="px-3 py-3 text-light rounded text-center" id="form">
+          <div class="row mb-3 text-left">
+            <div class="col-sm-12 mb-3">
+              <label for="FullName" class="font-weight-bold text-pizza">Full name</label>
+              <input type="text" class="form-control" placeholder="Full name" id="fname" required>
+            </div>
+
+            <div class="col-sm-12 mb-3">
+              <label for="FullName" class="font-weight-bold text-pizza">Phone number</label>
+              <input type="text" class="form-control" placeholder="Mobile/Landphone" id="phn" required>
+            </div>
+
+            <div class="col-sm-12 mb-2">
+              <label for="pizzaSizes" class="font-weight-bold text-pizza">Select size</label>
+
+              <div class="row px-3">
+                <div class="custom-control custom-radio col-sm-6 pb-1">
+                  <input type="radio" id="pizzaSize1" name="pizzaSize" value="small" class="custom-control-input pizzaSize" required>
+                  <label for="pizzaSize1" class="custom-control-label">Small <span class="text-pizza">($10)</span></label>
+                </div>
+  
+                <div class="custom-control custom-radio col-sm-6 pb-1">
+                  <input type="radio" id="pizzaSize2" name="pizzaSize" value="medium" class="custom-control-input pizzaSize" required>
+                  <label for="pizzaSize2" class="custom-control-label">Medium <span class="text-pizza">($15)</span></label>
+                </div>
+  
+                <div class="custom-control custom-radio col-sm-6 pb-1">
+                  <input type="radio" id="pizzaSize3" name="pizzaSize" value="large" class="custom-control-input pizzaSize" required>
+                  <label for="pizzaSize3" class="custom-control-label">Large <span class="text-pizza">($20)</span></label>
+                </div>
+  
+                <div class="custom-control custom-radio col-sm-6 pb-1">
+                  <input type="radio" id="pizzaSize4" name="pizzaSize" value="extra_Large" class="custom-control-input pizzaSize" required>
+                  <label for="pizzaSize4" class="custom-control-label">Extra Large <span class="text-pizza">($25)</span></label>
+                </div>
+              </div>                
+            </div>
+
+            <div class="col-sm-12">
+              <label for="pizzaToppings" class="font-weight-bold text-pizza">Select toppings</label>
+
+              <div class="row px-3">
+                <div class="custom-control custom-checkbox col-sm-6 pb-1">
+                  <input type="checkbox" id="pizzaTopping1" value="mushroom" class="custom-control-input pizzaTopping" required>
+                  <label for="pizzaTopping1" class="custom-control-label">Mushroom <span class="text-pizza">($5)</span></label>
+                </div>
+  
+                <div class="custom-control custom-checkbox col-sm-6 pb-1">
+                  <input type="checkbox" id="pizzaTopping2" value="cheese" class="custom-control-input pizzaTopping" required>
+                  <label for="pizzaTopping2" class="custom-control-label">Cheese <span class="text-pizza">($5)</span></label>
+                </div>
+  
+                <div class="custom-control custom-checkbox col-sm-6 pb-1">
+                  <input type="checkbox" id="pizzaTopping3" value="pepperoni" class="custom-control-input pizzaTopping" required>
+                  <label for="pizzaTopping3" class="custom-control-label">Pepperoni <span class="text-pizza">($8)</span></label>
+                </div>
+  
+                <div class="custom-control custom-checkbox col-sm-6 pb-1">
+                  <input type="checkbox" id="pizzaTopping4" value="meatball" class="custom-control-input pizzaTopping" required>
+                  <label for="pizzaTopping4" class="custom-control-label">Meatball <span class="text-pizza">($10)</span></label>
+                </div>
+  
+                <div class="custom-control custom-checkbox col-sm-6 pb-1">
+                  <input type="checkbox" id="pizzaTopping5" value="bacon" class="custom-control-input pizzaTopping" required>
+                  <label for="pizzaTopping5" class="custom-control-label">Bacon <span class="text-pizza">($12)</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-pizza px-4" type="submit">
+            Order Pizza
+          </button>
+        </form>
+
+    <!-- Modal -->
+        
+        <div class="modal fade" id="modal" tab-index="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header align-items-center py-2 bg-pizza">
+                <h3 class="modal-title">
+                  Order Summery
+                </h3>
+
+                <button class="close mx-0 my-0 py-2" type="button" data-dismiss="modal">
+                  <i class="fas fa-times fa-sm"></i>
+                </button>
+              </div>
+
+              <div class="modal-body px-0">
+                <div class="confirmMsg d-flex align-items-center text-success border-bottom pb-3 px-3">
+                  <span class="fa-stack fa-1x mr-1">
+                    <i class="fas fa-certificate fa-stack-2x"></i>
+                    <i class="fas fa-check fa-stack-1x fa-inverse"></i>
+                  </span>
+
+                  <span class="msgTxt">
+                    Order Confirmed
+                  </span>
+                </div>
+
+                <div class="bio border-bottom px-3 py-3">
+                  <div class="bio__field d-flex align-items-center mb-3">
+                    <i class="fas fa-user-circle fa-lg"></i>
+                    <span class="bio__name font-weight-bold pl-2">
+                      <!-- Data will be parsed through JS -->
+                    </span>
+                  </div>
+
+                  <div class="bio__field d-flex align-items-center" style="padding-left: .2rem;">
+                    <i class="fas fa-mobile-alt fa-lg"></i>
+                    <span class="bio__phone font-weight-bold pl-2">
+                      <!-- Data will be parsed through JS -->
+                    </span>
+                  </div>
+                </div>
+
+                <div class="orderDetail responsive-table-sm px-3">
+                  <table class="table table-borderless my-0">
+                    <tbody>
+                      <tr>
+                        <th class="table__header">Size</th>
+                        <td class="table__data sizeData">
+                          <!-- Data will be parsed through JS -->
+                        </td>
+                        <td class="table__price sizePrice">
+                          <!-- Data will be parsed through JS -->
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th class="table__header">Topping(s)</th>
+                        <td class="table__data toppingData">
+                          <!-- Data will be parsed through JS -->
+                        </td>
+                        <td class="table__price toppingPrice">
+                          <!-- Data will be parsed through JS -->
+                        </td>
+                      </tr>
+
+                      <tr class="border-top">
+                        <th class="table__header">
+                          Total Price
+                        </th>
+                        <td></td>
+                        <td class="table__netPrice font-weight-bold">
+                          <p>$37</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

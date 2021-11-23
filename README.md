@@ -1,2 +1,2 @@
-# Pizza-Delivery-Service_demo
-A simple pizza order service demo. 🍕
+# Pizza Order Service
+A simple pizza order service for fun. 🍕
